@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smooth Scroll Animation</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <!-- Preloader Overlay -->
+    <div id="loader">
+      <div class="loader-content">
+        <div class="spinner"></div>
+        <div id="loader-progress">0%</div>
+        <div class="loader-bar-bg">
+          <div id="loader-bar"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll track container -->
+    <div class="scroll-track">
+      <div class="canvas-wrapper">
+        <canvas id="scroll-canvas"></canvas>
+      </div>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

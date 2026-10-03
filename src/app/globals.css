@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+:root {
+  --accent-red: #E63946;
+  --accent-red-bright: #FF2B3C;
+  --text-primary: #FFFFFF;
+  --text-secondary: #9CA3AF;
+  --text-muted: #4B5563;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+  /* Dark fallback shown only before the canvas has loaded */
+  background-color: #070709;
+}
+
+body {
+  /* Fully transparent — the fixed canvas is the only background */
+  background: transparent;
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Outfit', 'Segoe UI', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Red accent selection */
+::selection {
+  background: rgba(230, 57, 70, 0.3);
+  color: #FFFFFF;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #070709;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(230, 57, 70, 0.4);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-red);
+}
+
+/* Micro glow dots along path */
+.path-dot {
+  box-shadow: 0 0 12px rgba(230, 57, 70, 0.6);
+}
+
+/*
+  Text legibility helpers — text-shadow only, no section backgrounds.
+  Applied globally to headings and prose inside section wrappers so text
+  pops against any frame of the scroll animation.
+*/
+section h1,
+section h2,
+section h3,
+section h4 {
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.95), 0 1px 6px rgba(0, 0, 0, 0.9);
+}
+
+section p,
+section li {
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.85);
+}
+
+/*
+  ─── Glassmorphism card — single unified system ────────────────────────────
+  Applied to every "solid black" card across Experience, Projects,
+  Education, Skills and Achievements so the animated portrait canvas
+  stays partially visible behind each card.
+*/
+.glass-card {
+  background: rgba(10, 10, 15, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  /* 3-D tilt: perspective applied via transform-style on the element itself */
+  transform-style: preserve-3d;
+  transition: box-shadow 0.3s ease;
+}
+.glass-card:hover {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.10);
+}
+
+/* Red-accent variant (left-accent stripe kept from original) */
+.glass-card-red {
+  background: rgba(10, 10, 15, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 2px solid #E63946;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  transform-style: preserve-3d;
+  transition: box-shadow 0.3s ease;
+}
+.glass-card-red:hover {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(230, 57, 70, 0.18);
+}
+
+/* Neutral-accent variant */
+.glass-card-neutral {
+  background: rgba(10, 10, 15, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 2px solid rgba(255, 255, 255, 0.2);
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  transform-style: preserve-3d;
+  transition: box-shadow 0.3s ease;
+}
+.glass-card-neutral:hover {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
